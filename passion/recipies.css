@@ -1,0 +1,60 @@
+
+html {
+    background-color: rgba(250, 235, 215, 0.642)
+}
+h1 {
+    background-image: url("beanbckgrnd\ copy.svg");
+    background-size: 100px;
+    color: #8d706d00;
+    font-size: 55px;
+    text-align: center;
+    height: 100px;
+}  
+    
+h2 {
+    text-align: center;
+    background-color: antiquewhite;
+     border:5px #8d706d;
+    color: #8d706d;
+    font-size: 55px;
+    border-radius: 75%;
+     width: 50%;         /* Needs a specified width */
+    margin: 0 auto;
+    margin-top: -115px;
+    margin-bottom: 100px;
+}
+#left {
+        margin-top: 25px;
+    float: left;
+    padding-bottom: 20px;
+    width: 33.33%;
+}
+#center {
+    text-align: center;
+    margin-top: 25px;
+    float: left;
+    padding-bottom: 20px;
+    width: 33.33%;
+}
+#right {
+        margin-top: 25px;
+    float: left;
+    padding-bottom: 20px;
+    width: 33.33%;
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+}
+.box {
+    /* Optional: Styling for visual appearance */
+    width: 100px;
+    height: 100px;
+    background-color: #4CAF50;
+    margin: 10px;
+    color: white;
+    text-align: center;
+    line-height: 100px; /* Center text vertically */
+    border-radius: 5px;
+}

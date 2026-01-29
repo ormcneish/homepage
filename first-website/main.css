@@ -1,0 +1,35 @@
+body {
+    background-color: antiquewhite;
+    font-size: 25px;
+}
+/* typography */
+p {
+    background-color:peachpuff;
+    /* border is a shorthand property for border-width, border-style, and border-color */
+    border: 5px dashed rgba(151, 91, 35, 0.75);
+    text-align: center;
+    padding: 20px 10px;
+    /* one value affects all sides
+     two values, the first corresponds to the top and bottom, while the second id the left and right
+     four values top,right,bottom,left */
+     margin: 50px;
+}
+
+h1 {
+    color:rgba(151, 91, 35, 0.75);
+}
+
+/* we preface classes with . and ids with # */
+.special {
+    background-color:peru;
+    font-size: 50px;
+    border-radius: 100%;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.text {
+    border-radius: 50px;
+}
