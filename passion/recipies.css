@@ -78,3 +78,12 @@ h4 {
     line-height: 50px; 
     border-radius: 5px;
 }
+
+button {
+    background-color: #8d706d98;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    border-radius: 5px;
+    border-color: #8d706d98;
+    color: white;
+}
