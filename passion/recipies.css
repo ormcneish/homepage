@@ -8,21 +8,32 @@ h1 {
     color: #8d706d00;
     font-size: 55px;
     text-align: center;
-    height: 100px;
+    height: 150px;
 }  
     
 h2 {
     text-align: center;
     background-color: antiquewhite;
-     border:5px #8d706d;
+    border:5px #8d706d;
     color: #8d706d;
     font-size: 55px;
     border-radius: 75%;
-     width: 50%;         /* Needs a specified width */
+    width: 50%;
     margin: 0 auto;
-    margin-top: -115px;
+    margin-top: -155px;
     margin-bottom: 100px;
+    letter-spacing: 3px;
+    font-family: cursive;
 }
+
+h3 {
+    font-size:xx-large;
+    color: antiquewhite;
+    margin: 20px;
+    margin-bottom: -40px;
+    text-align: center;
+}
+
 #left {
         margin-top: 25px;
     float: left;
@@ -46,15 +57,15 @@ h2 {
     display: flex;
     justify-content: space-around;
     align-items: center; 
+
 }
 .box {
-    /* Optional: Styling for visual appearance */
+    background-color: #8d706de6;
     width: 100px;
-    height: 100px;
-    background-color: #4CAF50;
-    margin: 10px;
+    height: 200px;
+    margin: 20px;
     color: white;
     text-align: center;
-    line-height: 100px; /* Center text vertically */
+    line-height: 50px; 
     border-radius: 5px;
 }
