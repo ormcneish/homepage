@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: backgroundShift 30s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundShift {
+  0%   { background-color: #FDEFE9; }
+  25%  { background-color: #EFC0BB; }
+  50%  { background-color: #DDE6D5; }
+  75%  { background-color: #A4B99A; }
+  100% { background-color: #FDEFE9; }
+}
+
+svg {
+  width: 40vw;
+  max-width: 400px;
+  height: auto;
+}
+
+.rose-path {
+  fill: none;
+  stroke-width: 2;
+
+  stroke: #313D26;          
+  stroke-dasharray: 4600;     
+  stroke-dashoffset: 4600;
+
+  animation:
+    drawFlow 15s linear infinite,
+    strokeShift 30s ease-in-out infinite alternate;
+}
+
+@keyframes drawFlow {
+  0%    { stroke-dashoffset: 4600; }  
+  60%   { stroke-dashoffset: 0; }     
+  61%   { stroke-dashoffset: 0; }     
+  100%  { stroke-dashoffset: 4600; } 
+}
+
+@keyframes strokeShift {
+  0%   { stroke: #313D26; }  
+  25%  { stroke: #7F9780; }    
+  75%  { stroke: #7F9780; }  
+  100% { stroke: #313D26; }   
+}
+
