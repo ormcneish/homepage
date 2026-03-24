@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(174, 217, 174);
+    transition: background .5s;
+}
+
+img {
+    max-width:100%;
+}    
+
+.container {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    max-width:1100px;
+    margin:50px auto;
+}
+
+header, .left, .center, .right, footer {
+    border:1px solid;
+    padding:20px;
+}
+
+header, footer {
+    text-align:center;
+}
+
+main {
+    display:flex;
+    gap:10px;
+}
+
+.left, .right {
+    width:25%;
+}
+
+.center {
+    width:50%;
+}
+
+
+/* min-width = mobile-first */
+/* for mobile first, we want our media queries to increase in pixel size as we move down our CSS document */
+
+/* max-width = desktop-first */
+/* for desktop-first, we want our media queries to decrease in pixel size as we move down our CSS document */
+/* tablet screen size */
+@media screen and (max-width:1000px) {
+    body {
+        background: lightgray;
+    }
+
+    main {
+        flex-wrap: wrap;
+    }
+
+    .left {
+        width:100%;
+    }
+
+    .center, .right {
+        width:calc(50% - 5px);
+    }
+}
+
+/* phone screen size */
+@media screen and (max-width:700px) {
+    body {
+        background: lightslategray;
+        font-size:120%;
+    }
+
+    .center, .right {
+        width:100%;
+    }
+}
