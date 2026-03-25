@@ -39,5 +39,5 @@ $(".hint-btn").on("click", function () {
     const overlay = $(".solved");
     const isVisible = overlay.is(":visible");
     overlay.toggle();
-    $(this).text(isVisible ? "Hint" : "HIde Hint");
+    $(this).text(isVisible ? "Hint" : "Hide Hint");
 });
