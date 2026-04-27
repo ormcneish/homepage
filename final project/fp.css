@@ -1,103 +1,202 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
-
-* {
+/* ── Reset & Base ───────────────────────────────────────────── */
+*, *::before, *::after {
     box-sizing: border-box;
-}
-html {
-  background-color: lightyellow;
-}
-h1 {
-  font-family: 'Fredoka One', cursive;
-  font-size: 3rem;
-  text-align: center;  
-  padding: 10px;
-  padding-bottom: -5px;
+    margin: 0;
+    padding: 0;
 }
 
-h2 {
-  text-align: center;  
+html, body {
+    height: 100%;
+    overflow: hidden;
+    background: #1a1209;
+    font-family: 'Georgia', serif;
 }
 
-.solved {
-    display: none;
+/* ── Layout Shell ───────────────────────────────────────────── */
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* ── Kitchen Canvas ─────────────────────────────────────────── */
+.kitchen {
+    position: relative;
+    flex: 1 1 auto;
+    overflow: hidden;
+    background-image:
+        /* warm grain overlay */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"),
+        /* subtle floor grid */
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 79px,
+            rgba(255,220,150,0.04) 80px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 79px,
+            rgba(255,220,150,0.04) 80px
+        ),
+        /* warm ambient gradient */
+        radial-gradient(ellipse 120% 80% at 30% 20%, #3d2a12 0%, #1a1209 60%);
+    cursor: crosshair;
+}
+
+/* ── Placed Items (draggable) ───────────────────────────────── */
+.placed-item {
     position: absolute;
-    top: 100px;
-    left:130px;
-    width: 80%; height: 80%;
-    object-fit: cover;
-    opacity: 0.85;
-    pointer-events: none;
+    cursor: grab;
+    user-select: none;
+    transition: filter 0.15s ease, transform 0.15s ease;
+    transform-origin: center center;
+    /* subtle drop shadow so items feel grounded */
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.55));
+}
+
+.placed-item:hover {
+    filter: drop-shadow(0 6px 16px rgba(255,200,80,0.35))
+            drop-shadow(0 4px 8px rgba(0,0,0,0.55));
+    transform: scale(1.04);
+}
+
+.placed-item.ui-draggable-dragging {
+    cursor: grabbing;
+    transform: scale(1.08) rotate(1.5deg);
+    filter: drop-shadow(0 12px 28px rgba(255,200,80,0.4))
+            drop-shadow(0 4px 8px rgba(0,0,0,0.6));
     z-index: 9999;
 }
 
-.container {
-    display:flex;
-    align-items: flex start;
-    padding-left: 150px;
-    padding-top: 50px;
-    gap:20px;
-}
-
-.kitchen {
-  width: 1024px;
-    height: 682.5px;
-    background: url("freeplay/kitchen/kitch-fpbckgrnd.png") no-repeat center;
-    background-size: 100% 100%;
-    position: relative;
-}
- .dining {
-  width: 1024px;
-    height: 682.5px;
-    background: url("dining-items/dining-bckgrnd.png") no-repeat center;
-    background-size: 100% 100%;
-    position: relative;
-}
-
-.bed {
-  width: 1024px;
-  height: 682.5px;
-  background: url("bed-items/bedbckgrnd.png") no-repeat center;
-  background-size: 100% 100%;
-  position: relative;
-}
-
+/* ── Toolbar Shell ──────────────────────────────────────────── */
 .toolbar {
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    margin-top:0;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+    /* rich warm wood-panel look */
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,0.015) 0px,
+            rgba(255,255,255,0.015) 1px,
+            transparent 1px,
+            transparent 48px
+        ),
+        linear-gradient(180deg,
+            #3b2208 0%,
+            #2a1905 60%,
+            #1e1204 100%
+        );
+    border-top: 2px solid #6b3f10;
+    box-shadow:
+        0 -4px 24px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(255,200,80,0.12);
+
+    /* scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: #6b3f10 #1e1204;
 }
 
-.toolbar img {
-    width:40px;
-    cursor:grab;
+.toolbar::-webkit-scrollbar {
+    height: 5px;
+}
+.toolbar::-webkit-scrollbar-track {
+    background: #1e1204;
+}
+.toolbar::-webkit-scrollbar-thumb {
+    background: #6b3f10;
+    border-radius: 99px;
 }
 
-.placed-item {
-  position: absolute;
-  cursor: move;
-                width: 80px;
-                height: 80px;
-                object-fit: contain;
-                /* smooth drop */
-                transition: box-shadow 0.15s;
-            }
-            .placed-item:hover {
-                box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-                z-index: 100;
-            }
-            /* Toolbar items show grab cursor */
-            .toolbar img.item {
-                cursor: grab;
-                transition: transform 0.15s, opacity 0.15s;
-            }
-            .toolbar img.item:hover {
-                transform: scale(1.12);
-                opacity: 0.85;
-            }
+/* ── Toolbar Item Tiles ─────────────────────────────────────── */
+.toolbar .item {
+    flex: 0 0 auto;
+    display: block;
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    padding: 6px;
+    cursor: grab;
 
+    border-radius: 10px;
+    border: 1.5px solid rgba(107, 63, 16, 0.6);
+    background: rgba(255, 255, 255, 0.04);
 
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+}
 
+.toolbar .item:hover {
+    background: rgba(255, 200, 80, 0.12);
+    border-color: rgba(255, 180, 60, 0.7);
+    transform: translateY(-4px) scale(1.08);
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.5),
+        0 0 10px rgba(255,200,80,0.2);
+}
 
+.toolbar .item:active {
+    cursor: grabbing;
+    transform: translateY(-2px) scale(1.05);
+}
 
+/* ── "Drag items onto canvas" hint ─────────────────────────── */
+.kitchen::after {
+    content: "drag items onto the canvas";
+    position: absolute;
+    bottom: 18px;
+    right: 20px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 200, 80, 0.22);
+    pointer-events: none;
+    user-select: none;
+}
 
+/* ── Right-click context menu (delete) ─────────────────────── */
+.context-menu {
+    position: fixed;
+    z-index: 99999;
+    background: #2a1905;
+    border: 1px solid #6b3f10;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.7);
+    padding: 4px 0;
+    min-width: 130px;
+    display: none;
+}
+
+.context-menu.visible {
+    display: block;
+}
+
+.context-menu button {
+    display: block;
+    width: 100%;
+    padding: 9px 16px;
+    background: none;
+    border: none;
+    color: rgba(255, 220, 150, 0.9);
+    font-family: 'Georgia', serif;
+    font-size: 13px;
+    text-align: left;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: background 0.12s ease;
+}
+
+.context-menu button:hover {
+    background: rgba(255, 200, 80, 0.14);
+}
