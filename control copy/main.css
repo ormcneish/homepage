@@ -3,7 +3,9 @@
 * {
     box-sizing: border-box;
 }
-
+html {
+  background-color: lightyellow;
+}
 h1 {
   font-family: 'Fredoka One', cursive;
   font-size: 3rem;
