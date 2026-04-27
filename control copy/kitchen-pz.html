@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kitchen Puzzle</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <h1>Interior Motive</h1>
+        <h2>Level 3</h2>
+
+        <img src="kitchen-items/kitchen-hint.png" class="solved">
+        <button class="hint-btn">Hint</button>
+        
+        <div class="container">
+            <div class="kitchen">
+                <div class="dropzone" data-accept="cups"
+                    style="left: 508px; top: 111px; width: 63px; height: 50px;"></div>
+
+                <div class="dropzone" data-accept="plates"
+                    style="left: 440px; top: 109px; width: 68px; height: 53px;"></div>
+
+                <div class="dropzone" data-accept="fridge"
+                    style="left: 760px; top: 105px; width: 215px; height: 450px;"></div>
+
+                <div class="dropzone" data-accept="oven"
+                    style="left: 556px; top: 350px; width: 185px; height: 200px;"></div>
+
+                <div class="dropzone" data-accept="microwave"
+                    style="left: 70px; top: 245px; width: 150px; height: 100px;"></div>
+
+                <div class="dropzone" data-accept="pan"
+                    style="left: 658px; top: 293px; width: 90px; height: 50px;"></div>
+
+                <div class="dropzone" data-accept="utensil-1"
+                    style="left: 470px; top: 222px; width: 30px; height: 77px;"></div>
+
+                <div class="dropzone" data-accept="utensil-3"
+                    style="left: 495px; top: 222px; width: 30px; height: 77px;"></div>
+
+                <div class="dropzone" data-accept="vent"
+                    style="left: 575px; top: 25px; width: 150px; height: 180px;"></div>
+            </div>
+
+            <div class="toolbar">
+                <img src="kitchen-items/cups.png" class="item" data-type="cups"/>
+                <img src="kitchen-items/plates.png" class="item" data-type="plates"/>
+                <img src="kitchen-items/fridge.png" class="item" data-type="fridge"/>
+                <img src="kitchen-items/microwave.png" class="item" data-type="microwave"/>
+                <img src="kitchen-items/oven.png" class="item" data-type="oven"/>
+                <img src="kitchen-items/pan.png" class="item" data-type="pan"/>
+                <img src="kitchen-items/utensil-1.png" class="item" data-type="utensil-1"/>
+                <img src="kitchen-items/utensil-3.png" class="item" data-type="utensil-3"/>
+                <img src="kitchen-items/vent.png" class="item" data-type="vent"/>
+            </div>
+
+        </div>
+        <div class="complete-popup">
+            <div class="complete-box">
+                <div class="complete-icon">✓</div>
+                <h2>Complete!</h2>
+                <p>You placed all the items.</p>
+                <button class="close-btn">Close</button>
+            </div>
+        </div>
+
+        <script src="jquery-4.0.0.min.js"></script>
+        <script src="jquery-ui.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

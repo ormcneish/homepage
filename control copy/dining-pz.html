@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>-</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <h1>Interior Motive</h1>
+        <h2>Level 4</h2>
+
+        <img src="dining-items/dining-hint.png" class="solved">
+        <button class="hint-btn">Hint</button>
+        
+        <div class="container">
+            <div class="dining">
+                <div class="dropzone" data-accept="light"
+                    style="left: 595px; top: 140px; width: 80px; height: 100px;"></div>
+
+                <div class="dropzone" data-accept="chair-left"
+                    style="left: 320px; top: 370px; width: 150px; height: 220px;"></div>
+
+                <div class="dropzone" data-accept="chair-right"
+                    style="left: 800px; top: 370px; width: 150px; height: 220px;"></div>
+
+                <div class="dropzone" data-accept="mug"
+                    style="left: 740px; top: 401px; width: 35px; height: 35px;"></div>
+
+                <div class="dropzone" data-accept="plates"
+                    style="left: 200px; top: 365px; width: 63px; height: 45px;"></div>
+
+                <div class="dropzone" data-accept="cups"
+                    style="left: 200px; top: 291px; width: 80px; height: 45px;"></div>
+
+                <div class="dropzone" data-accept="vase"
+                    style="left: 100px; top: 165px; width: 70px; height: 80px;"></div>
+            </div>
+
+            <div class="toolbar">
+                <img src="dining-items/chair-left.png" class="item" data-type="chair-left"/>
+                <img src="dining-items/chair-right.png" class="item" data-type="chair-right"/>
+                <img src="dining-items/cups.png" class="item" data-type="cups"/>
+                <img src="dining-items/light.png" class="item" data-type="light"/>
+                <img src="dining-items/mug.png" class="item" data-type="mug"/>
+                <img src="dining-items/plates.png" class="item" data-type="plates"/>
+                <img src="dining-items/vase.png" class="item" data-type="vase"/>
+            </div>
+
+        </div>
+        <div class="complete-popup">
+            <div class="complete-box">
+                <div class="complete-icon">✓</div>
+                <h2>Complete!</h2>
+                <p>You placed all the items.</p>
+                <button class="close-btn">Close</button>
+            </div>
+        </div>
+
+        <script src="jquery-4.0.0.min.js"></script>
+        <script src="jquery-ui.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
